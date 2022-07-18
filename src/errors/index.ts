@@ -9,3 +9,11 @@ export class MigrationTableNameNotPassedError extends Error {
     super(`Migration table name not passed`);
   }
 }
+
+export class MigrationTableAlreadyExistsError extends Error {
+  constructor(tableName: string) {
+    super(
+      `Data migrations table called '${tableName}' already exists in prisma schema file`,
+    );
+  }
+}

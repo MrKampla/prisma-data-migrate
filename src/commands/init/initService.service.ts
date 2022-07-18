@@ -2,6 +2,7 @@ import { Injectable } from '@nestjs/common';
 import { FileSystemService } from '../../services/fileSystem';
 import { ScriptExecutorService } from '../../services/scriptExecutor';
 import { join, dirname } from 'path';
+import { MigrationTableAlreadyExistsError } from '../../errors';
 
 @Injectable()
 export class InitService {
@@ -16,6 +17,8 @@ export class InitService {
     const prismaSchemaFile = (
       await this.fs.readFile(pathToPrismaSchema)
     ).toString();
+    this.checkIfDataMigrationsTableExists(prismaSchemaFile, tableName);
+
     const modifiedSchemaFile = this.appendMigrationTableSchema(
       prismaSchemaFile,
       tableName,
@@ -55,5 +58,14 @@ export class InitService {
       'dataMigrations',
     );
     await this.fs.createDirectory(pathToDataMigrationsDirectory);
+  }
+
+  private checkIfDataMigrationsTableExists(
+    prismaSchemaFileContent: string,
+    table: string,
+  ) {
+    if (prismaSchemaFileContent.includes(`model ${table}`)) {
+      throw new MigrationTableAlreadyExistsError(table);
+    }
   }
 }
