@@ -1,0 +1,65 @@
+{
+  "version": "0.0.1",
+  "license": "MIT",
+  "main": "dist/index.js",
+  "typings": "dist/index.d.ts",
+  "files": [
+    "dist",
+    "src"
+  ],
+  "engines": {
+    "node": ">=14"
+  },
+  "scripts": {
+    "run": "node dist/index.js",
+    "start": "tsdx watch",
+    "build": "tsdx build",
+    "test": "tsdx test",
+    "lint": "tsdx lint",
+    "prepare": "tsdx build",
+    "size": "size-limit",
+    "analyze": "size-limit --why"
+  },
+  "peerDependencies": {},
+  "husky": {
+    "hooks": {
+      "pre-commit": "tsdx lint"
+    }
+  },
+  "prettier": {
+    "printWidth": 80,
+    "semi": true,
+    "singleQuote": true,
+    "trailingComma": "all"
+  },
+  "name": "prisma-data-migrate",
+  "author": "MrKampla",
+  "module": "dist/prisma-data-migrate.esm.js",
+  "size-limit": [
+    {
+      "path": "dist/prisma-data-migrate.cjs.production.min.js",
+      "limit": "10 KB"
+    },
+    {
+      "path": "dist/prisma-data-migrate.esm.js",
+      "limit": "10 KB"
+    }
+  ],
+  "devDependencies": {
+    "@size-limit/preset-small-lib": "^7.0.8",
+    "@types/inquirer": "^8.2.1",
+    "husky": "^8.0.1",
+    "size-limit": "^7.0.8",
+    "tsdx": "^0.14.1",
+    "tslib": "^2.4.0",
+    "typescript": "^4.7.4"
+  },
+  "dependencies": {
+    "@nestjs/common": "^9.0.3",
+    "@nestjs/core": "^9.0.3",
+    "@nestjs/testing": "^9.0.3",
+    "chalk": "4.1.2",
+    "nest-commander": "^2.5.0",
+    "reflect-metadata": "^0.1.13"
+  }
+}
