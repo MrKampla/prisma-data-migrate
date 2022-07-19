@@ -1237,6 +1237,11 @@
     consola "^2.15.0"
     node-fetch "^2.6.1"
 
+"@prisma/engines@4.1.0":
+  version "4.1.0"
+  resolved "https://registry.yarnpkg.com/@prisma/engines/-/engines-4.1.0.tgz#da8002d4b75c92e3fd564ba5b0bd04847ffb3c4c"
+  integrity sha512-quqHXD3P83NBLVtRlts4SgKHmqgA8GMiyDTJ7af03Wg0gl6F5t65mBYvIuwmD+52vHm42JtIsp/fAO9YIV0JBA==
+
 "@rollup/plugin-babel@^5.1.0":
   version "5.3.1"
   resolved "https://registry.yarnpkg.com/@rollup/plugin-babel/-/plugin-babel-5.3.1.tgz#04bc0608f4aa4b2e4b1aebf284344d0f68fda283"
@@ -3184,6 +3189,11 @@ file-entry-cache@^5.0.1:
   integrity sha512-bCg29ictuBaKUwwArK4ouCaqDgLZcysCFLmM/Yn/FDoqndh/9vNuQfXRDvTuXKLxfD/JtZQGKFT8MGcJBK644g==
   dependencies:
     flat-cache "^2.0.1"
+
+filename-reserved-regex@^2.0.0:
+  version "2.0.0"
+  resolved "https://registry.yarnpkg.com/filename-reserved-regex/-/filename-reserved-regex-2.0.0.tgz#abf73dfab735d045440abfea2d91f389ebbfa229"
+  integrity sha512-lc1bnsSr4L4Bdif8Xb/qrtokGbq5zlsms/CYH8PP+WtCkGNF65DPiQY8vG3SakEdRn8Dlnm+gW/qWKKjS5sZzQ==
 
 fill-range@^4.0.0:
   version "4.0.0"
@@ -5343,6 +5353,13 @@ pretty-format@^25.2.1, pretty-format@^25.5.0:
     ansi-styles "^4.0.0"
     react-is "^16.12.0"
 
+prisma@^4.1.0:
+  version "4.1.0"
+  resolved "https://registry.yarnpkg.com/prisma/-/prisma-4.1.0.tgz#5d43597f0f2603a4a75d9586346c74110d8e221f"
+  integrity sha512-iwqpAT6In1uvMSwQAM3PqmaBdhh2OaQ/2t+n3RjpW4vAKP3R7E1T34FZUU4zGOWtMWm5dt0sPThQkT/h87r6gw==
+  dependencies:
+    "@prisma/engines" "4.1.0"
+
 progress-estimator@^0.2.2:
   version "0.2.2"
   resolved "https://registry.yarnpkg.com/progress-estimator/-/progress-estimator-0.2.2.tgz#1c3947a5782ea56e40c8fccc290ac7ceeb1b91cb"
@@ -6695,6 +6712,13 @@ v8-to-istanbul@^4.1.3:
     "@types/istanbul-lib-coverage" "^2.0.1"
     convert-source-map "^1.6.0"
     source-map "^0.7.3"
+
+valid-filename@3.1.0:
+  version "3.1.0"
+  resolved "https://registry.yarnpkg.com/valid-filename/-/valid-filename-3.1.0.tgz#da8766b7714566c155cc36d985824a5e45db01f3"
+  integrity sha512-O99sdfhdGCiWoN4cv6Unq4eJ2EuXwRsOLCeSw+IJyMYgwVK0BPmaUnzhWQw5E8qknLTVrVExCr6xxTBnRBvtsQ==
+  dependencies:
+    filename-reserved-regex "^2.0.0"
 
 validate-npm-package-license@^3.0.1:
   version "3.0.4"

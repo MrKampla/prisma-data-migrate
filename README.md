@@ -8,7 +8,7 @@
 
 Prisma does not have the functionality of migrating the actual data with Typescript built in - it only allows to migrate the database schema using SQL. RedwoodJS solves that problem with [data migrations](https://redwoodjs.com/docs/data-migrations), but it is specific only to Redwood applications. This package is a CLI tool for creating data migrations and applying them to any project that uses Prisma.
 
-### Getting started
+## Getting started
 
 Install the prisma-data-migrate tool with your favorite package manager:
 
@@ -30,10 +30,18 @@ In order to initialize data migrations, run:
 npx prisma-data-migrate init
 ```
 
-This command will automatically look for `schema.prisma` file in the prisma directory. If it's not found, then you have to specify the path to the schema file with `--schema [relative-path-to-schema]` parameter.
+This command will automatically look for `schema.prisma` file in the prisma directory. If it's not found, then you have to specify the path to the schema file with `--schema "relative-path-to-schema"` parameter.
 
-Prisma-migrate-schema needs a table in your database in order to store the actual state of database migrations that have been run. By default, this table is called `prisma_data_migrations` but you can change that with `--table [table-name]` parameter.
+Prisma-migrate-schema needs a table in your database in order to store the actual state of database migrations that have been run. By default, this table is called `prisma_data_migrations` but you can change that with `--table "table-name"` parameter.
 
 After initializing the prisma-data-migrate, you have to run an actual migration with Prisma migrate in order for Prisma to create the `prisma_data_migrations` table.
 
 ## Commands
+
+### create
+
+```sh
+npx prisma-data-migrate create --name "name_of_the_migration"
+```
+
+Creates a new data migration file with a name of choice. Name parameter is required. Also you can provide a custom path to the prisma schema file with `--schema "relative-path-to-schema"`. New data migration will be created in the `dataMigrations` directory which is a sibling to the prisma schema file.

@@ -17,3 +17,9 @@ export class MigrationTableAlreadyExistsError extends Error {
     );
   }
 }
+
+export class InvalidFileNameError extends Error {
+  constructor(migrationName: string) {
+    super(`The migration name "${migrationName}" is not a valid filename.`);
+  }
+}
