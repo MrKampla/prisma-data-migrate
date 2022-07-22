@@ -12,6 +12,15 @@ export class ScriptExecutorService {
       stdio: 'inherit',
     },
   ) {
-    return spawn(command, args, options);
+    return new Promise<void>((resolve, reject) => {
+      const scriptProcess = spawn(command, args, options);
+      scriptProcess.on('close', code => {
+        if (code === 0) {
+          resolve();
+        } else {
+          reject(code);
+        }
+      });
+    });
   }
 }
