@@ -23,4 +23,8 @@ export class FileSystemService {
   async createDirectory(path: string) {
     return fs.mkdir(path, { recursive: true });
   }
+  async listFilesInDirectory(path: string): Promise<string[]> {
+    const entries = await fs.readdir(path, { withFileTypes: true });
+    return entries.filter(entry => entry.isFile()).map(file => file.name);
+  }
 }

@@ -1,11 +1,13 @@
 import { Module, OnApplicationBootstrap } from '@nestjs/common';
 import { Command } from 'commander';
+import { StatusModule } from './commands/status/status.module';
 import { InjectCommander } from 'nest-commander';
 import { CreateModule } from './commands/create/create.module';
 import { InitModule } from './commands/init/init.module';
+import { PrismaModule } from './services/prismaService/prisma.module';
 
 @Module({
-  imports: [InitModule, CreateModule],
+  imports: [InitModule, CreateModule, StatusModule, PrismaModule],
 })
 export class AppModule implements OnApplicationBootstrap {
   constructor(@InjectCommander() private readonly commander: Command) {}

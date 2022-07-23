@@ -61,6 +61,7 @@
     "@nestjs/common": "^9.0.3",
     "@nestjs/core": "^9.0.3",
     "@nestjs/testing": "^9.0.3",
+    "@prisma/client": "4.1.0",
     "chalk": "4.1.2",
     "commander": "^9.4.0",
     "nest-commander": "^2.5.0",
