@@ -2,7 +2,7 @@ import { Command, CommandRunner, Option } from 'nest-commander';
 import { FileSystemService } from '../../services/fileSystem';
 import chalk from 'chalk';
 import isValidFilename from 'valid-filename';
-import { CreateService } from './createService.service';
+import { CreateService } from './create.service';
 import { InvalidFileNameError, PrismaSchemaNotFoundError } from '../../errors';
 
 interface CreateCommandOptions {

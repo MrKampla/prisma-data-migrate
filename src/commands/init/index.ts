@@ -4,7 +4,7 @@ import {
   PrismaSchemaNotFoundError,
 } from '../../errors';
 import { FileSystemService } from '../../services/fileSystem';
-import { InitService } from './initService.service';
+import { InitService } from './init.service';
 import chalk from 'chalk';
 
 interface InitCommandOptions {

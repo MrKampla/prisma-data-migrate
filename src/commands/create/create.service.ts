@@ -15,10 +15,10 @@ export class CreateService {
     return new Date()
       .toISOString()
       .split('T')
-      .reverse()
       .join('')
       .replace(/[:.-]/g, '')
-      .replace('Z', '');
+      .replace('Z', '')
+      .slice(0, -3);
   }
 
   async createDataMigrationFile(
