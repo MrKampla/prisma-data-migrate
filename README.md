@@ -34,7 +34,7 @@ This command will automatically look for `schema.prisma` file in the prisma dire
 
 Prisma-migrate-schema needs a table in your database in order to store the actual state of database migrations that have been run. By default, this table is called `prisma_data_migrations` but you can change that with `--table "table-name"` parameter.
 
-After initializing the prisma-data-migrate, you have to run an actual migration with Prisma migrate in order for Prisma to create the `prisma_data_migrations` table.
+After initializing the prisma-data-migrate, you have to run an actual migration with Prisma migrate in order for Prisma to create the `prisma_data_migrations` table. After that you're good to go!
 
 ## Commands
 
@@ -45,3 +45,19 @@ npx prisma-data-migrate create --name "name_of_the_migration"
 ```
 
 Creates a new data migration file with a name of choice. Name parameter is required. Also you can provide a custom path to the prisma schema file with `--schema "relative-path-to-schema"`. New data migration will be created in the `dataMigrations` directory which is a sibling to the prisma schema file.
+
+### deploy
+
+```sh
+npx prisma-data-migrate deploy
+```
+
+Deploys all the migrations that are present in the `dataMigrations` directory but not saved as executed in the database.
+
+### status
+
+```sh
+npx prisma-data-migrate status
+```
+
+Returns a status of the database, whether it is up-to-date or not.

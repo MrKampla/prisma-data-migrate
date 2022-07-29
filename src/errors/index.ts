@@ -23,3 +23,11 @@ export class InvalidFileNameError extends Error {
     super(`The migration name "${migrationName}" is not a valid filename.`);
   }
 }
+
+export class IncorrectMigrationHistoryError extends Error {
+  constructor() {
+    super(
+      `The migration history is incorrect - some migration files are missing in the dataMigrations directory.`,
+    );
+  }
+}

@@ -14,9 +14,11 @@ export class StatusService {
   async getMigrationsFromFileSystem(
     prismaSchemaFilePath: string,
   ): Promise<Pick<PrismaDataMigration, 'name'>[]> {
-    const migrationFiles = await this.fsService.listFilesInDirectory(
-      join(dirname(prismaSchemaFilePath), 'dataMigrations'),
-    );
+    const migrationFiles = (
+      await this.fsService.listFilesInDirectory(
+        join(dirname(prismaSchemaFilePath), 'dataMigrations'),
+      )
+    ).filter(file => ['.ts', '.js'].includes(parse(file).ext));
     return this.getMigrationNames(migrationFiles);
   }
 

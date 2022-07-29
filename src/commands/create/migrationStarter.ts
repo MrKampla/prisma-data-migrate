@@ -1,4 +1,4 @@
 export default `import { PrismaClient } from '@prisma/client';
 
-export default (db: PrismaClient) => {};
+export default async (db: PrismaClient) => {};
 `;

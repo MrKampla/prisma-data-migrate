@@ -14,16 +14,18 @@
     "node": ">=14"
   },
   "scripts": {
-    "run": "node dist/index.js",
+    "run": "chmod 777 dist/index.js && dist/index.js",
     "start": "tsdx watch",
-    "build": "tsdx build",
+    "build": "tsdx build && echo '#!/usr/bin/env ts-node\n' \"$(cat dist/index.js)\" > dist/index.js",
     "test": "tsdx test",
     "lint": "tsdx lint",
     "prepare": "tsdx build",
     "size": "size-limit",
     "analyze": "size-limit --why"
   },
-  "peerDependencies": {},
+  "peerDependencies": {
+    "ts-node": "^10.0.0"
+  },
   "husky": {
     "hooks": {
       "pre-commit": "tsdx lint"

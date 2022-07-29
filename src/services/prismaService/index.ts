@@ -5,18 +5,22 @@ declare const __DEV__: boolean;
 
 @Injectable()
 export class PrismaService {
-  private prismaClient: PrismaClient;
+  private _prismaClient: PrismaClient;
 
   async executeQuery(query: string) {
-    if (!this.prismaClient) {
-      this.initializePrismaClient();
-    }
     return this.prismaClient.$queryRawUnsafe(query);
   }
 
   private initializePrismaClient() {
-    this.prismaClient = new PrismaClient({
+    this._prismaClient = new PrismaClient({
       log: __DEV__ ? ['query', 'info', 'warn', 'error'] : ['error'],
     });
+  }
+
+  get prismaClient() {
+    if (!this._prismaClient) {
+      this.initializePrismaClient();
+    }
+    return this._prismaClient;
   }
 }
