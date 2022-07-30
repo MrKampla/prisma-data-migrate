@@ -1,10 +1,14 @@
 {
-  "version": "1.0.0",
+  "version": "1.0.1",
   "license": "MIT",
   "main": "dist/index.js",
   "typings": "dist/index.d.ts",
   "bin": {
     "prisma-data-migrate": "dist/index.js"
+  },
+  "repository": {
+    "url": "https://github.com/MrKampla/prisma-data-migrate",
+    "type": "git"
   },
   "files": [
     "dist",
