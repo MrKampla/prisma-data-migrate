@@ -61,3 +61,11 @@ npx prisma-data-migrate status
 ```
 
 Returns a status of the database, whether it is up-to-date or not.
+
+### baseline
+
+```sh
+npx prisma-data-migrate status --migration "20220723130345_name_of_the_migration_file.ts"
+```
+
+Marks all the migrations as executed up to the selected migration (including the selected one).

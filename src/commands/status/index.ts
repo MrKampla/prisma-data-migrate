@@ -80,7 +80,7 @@ export class StatusCommand implements CommandRunner {
   ${chalk.blueBright('npx prisma-data-migrate deploy')} 
   in order to apply new migrations to the databse or: 
   ${`${chalk.blueBright(
-    'npx prisma-data-migrate baseline --migrationName 20220723123439_example_migration_name',
+    'npx prisma-data-migrate baseline --migration 20220723123439_example_migration_name.ts',
   )}`}
   in order to mark the migration as executed.`,
         )

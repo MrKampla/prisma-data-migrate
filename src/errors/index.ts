@@ -31,3 +31,11 @@ export class IncorrectMigrationHistoryError extends Error {
     );
   }
 }
+
+export class MigrationFileDoesNotExistError extends Error {
+  constructor(migrationFileName: string) {
+    super(
+      `The migration file ${migrationFileName} does not exist in the dataMigrations directory.`,
+    );
+  }
+}

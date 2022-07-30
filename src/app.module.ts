@@ -6,9 +6,17 @@ import { CreateModule } from './commands/create/create.module';
 import { InitModule } from './commands/init/init.module';
 import { PrismaModule } from './services/prismaService/prisma.module';
 import { DeployModule } from './commands/deploy/deploy.module';
+import { BaselineModule } from './commands/baseline/baseline.module';
 
 @Module({
-  imports: [InitModule, CreateModule, StatusModule, DeployModule, PrismaModule],
+  imports: [
+    InitModule,
+    CreateModule,
+    StatusModule,
+    DeployModule,
+    BaselineModule,
+    PrismaModule,
+  ],
 })
 export class AppModule implements OnApplicationBootstrap {
   constructor(@InjectCommander() private readonly commander: Command) {}

@@ -1,6 +1,5 @@
 /* eslint-disable @typescript-eslint/camelcase */
 import { Injectable } from '@nestjs/common';
-import { FileSystemService } from '../../services/fileSystem';
 import { join, dirname } from 'path';
 import { PrismaService } from '../../services/prismaService';
 import { Migration, MigrationInfo, MigrationResult } from './types';
@@ -14,7 +13,6 @@ import { prisma_data_migrations } from '.prisma/client';
 @Injectable()
 export class DeployService {
   constructor(
-    private readonly fs: FileSystemService,
     private readonly statusService: StatusService,
     private readonly prismaService: PrismaService,
   ) {}

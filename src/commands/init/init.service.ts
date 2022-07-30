@@ -41,8 +41,8 @@ export class InitService {
 
   private getMigrationTableSchema(tableName: string): string {
     return `model ${tableName} {
-    id          String   @id
-    name        String
+    id          Int      @id @default(autoincrement())
+    name        String   @unique
     started_at  DateTime
     finished_at DateTime
 }
