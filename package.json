@@ -4,7 +4,7 @@
   "main": "dist/index.js",
   "typings": "dist/index.d.ts",
   "bin": {
-    "prisma-data-migrate": "dist/index.js"
+    "prisma-data-migrate": "ts-node dist/index.js"
   },
   "repository": {
     "url": "https://github.com/MrKampla/prisma-data-migrate",
@@ -18,16 +18,14 @@
     "node": ">=14"
   },
   "scripts": {
-    "run": "chmod 777 dist/index.js && dist/index.js",
+    "run": "ts-node dist/index.js",
     "start": "tsdx watch",
-    "build": "tsdx build && echo '#!/usr/bin/env ts-node\n' \"$(cat dist/index.js)\" > dist/index.js",
+    "build": "tsdx build",
     "test": "tsdx test",
     "lint": "tsdx lint",
     "prepublishOnly": "yarn build"
   },
-  "peerDependencies": {
-    "ts-node": "^10.0.0"
-  },
+  "peerDependencies": {},
   "husky": {
     "hooks": {
       "pre-commit": "tsdx lint"
@@ -71,6 +69,7 @@
     "nest-commander": "^2.5.0",
     "prisma": "^4.1.0",
     "reflect-metadata": "^0.1.13",
+    "ts-node": "^10.9.1",
     "valid-filename": "3.1.0"
   }
 }
