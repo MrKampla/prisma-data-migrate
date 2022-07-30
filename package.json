@@ -1,5 +1,5 @@
 {
-  "version": "1.0.1",
+  "version": "1.0.2",
   "license": "MIT",
   "main": "dist/index.js",
   "typings": "dist/index.d.ts",
@@ -23,9 +23,8 @@
     "build": "tsdx build && echo '#!/usr/bin/env ts-node\n' \"$(cat dist/index.js)\" > dist/index.js",
     "test": "tsdx test",
     "lint": "tsdx lint",
-    "prepare": "tsdx build",
-    "size": "size-limit",
-    "analyze": "size-limit --why"
+    "postinstall": "yarn build",
+    "prepublish": "yarn build"
   },
   "peerDependencies": {
     "ts-node": "^10.0.0"
